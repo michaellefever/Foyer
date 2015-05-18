@@ -1,8 +1,5 @@
 <?php namespace App\Http\Controllers;
 
-use App\Http\Requests\CreateRaceRequest;
-use App\Race;
-
 class HomeController extends Controller {
 
 	/*
@@ -25,34 +22,6 @@ class HomeController extends Controller {
 	{
 		$this->middleware('auth');
 	}
-
-	/**
-	 * Show the application dashboard to the user.
-	 *
-	 * @return Response
-	 */
-	public function index()
-	{
-        $races = Race::all();
-        return view('race_overview')->with('races', $races);
-	}
-
-    public function create()
-    {
-        return view('race_form');
-    }
-
-    public function overview()
-    {
-        $races = Race::all();
-        return view('race_overview')->with('races', $races);
-    }
-
-    public function store(CreateRaceRequest $request){
-        $input = $request->all();
-        Race::create($input);
-        return $this->overview();
-    }
 
 
 

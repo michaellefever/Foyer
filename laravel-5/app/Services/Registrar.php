@@ -1,6 +1,6 @@
 <?php namespace App\Services;
 
-use App\Admin;
+use App\Registrant;
 use Validator;
 use Illuminate\Contracts\Auth\Registrar as RegistrarContract;
 
@@ -16,20 +16,20 @@ class Registrar implements RegistrarContract {
 	{
 		return Validator::make($data, [
 			'name' => 'required|max:255',
-			'email' => 'required|email|max:255|unique:admins',
+			'email' => 'required|email|max:255|unique:registrants',
 			'password' => 'required|confirmed|min:6',
 		]);
 	}
 
 	/**
-	 * Create a new user instance after a valid registration.
+	 * Create a new admin instance after a valid registration.
 	 *
 	 * @param  array  $data
-	 * @return Admin
+	 * @return Registrar
 	 */
 	public function create(array $data)
 	{
-		return Admin::create([
+		return Registrant::create([
 			'name' => $data['name'],
 			'email' => $data['email'],
 			'password' => bcrypt($data['password']),

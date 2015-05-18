@@ -30,12 +30,12 @@ class WelcomeController extends Controller {
 	 */
 	public function index()
 	{
-		return view('registration');
+		return view('home');
 	}
 
     public function contact()
     {
-        return 'contact';
+        return view('pages.contact');
     }
 
 }

@@ -14,21 +14,28 @@ class CreateParticipationsTable extends Migration {
     {
         Schema::create('participations', function(Blueprint $table)
         {
-            $table->integer('idW')
-                ->foreign('idW')->references('idW')->on('races');
+            $table->integer('race_id')->unsigned()->index();
+            $table->foreign('race_id')->references('id')->on('races')
+                ->onDelete('cascade')
+                ->onUpdate('cascade');
+
             $table->integer('year');
-            $table->integer('raceP')->unsigned()
-                ->foreign('raceP')->references('id')->on('users');
+
+            $table->integer('user_id')->unsigned()->index();
+            $table->foreign('user_id')->references('id')->on('users')
+                ->onDelete('cascade');
+
             $table->integer('raceNumber');
-            $table->unique('raceNumber');
+            //$table->unique('raceNumber');
             $table->integer('chipNumber')->nullable();
-            $table->dateTime('time');
+            $table->dateTime('time')->nullable();
             $table->boolean('paid');
             $table->boolean('wiredTransfer');
             $table->boolean('signedUpOnline');
             $table->timestamps();
 
-            $table->primary(array('year', 'idW', 'raceP'));
+            $table->primary(array('user_id', 'race_id', 'year'));
+
         });
     }
 

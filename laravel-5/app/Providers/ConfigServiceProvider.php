@@ -19,12 +19,12 @@ class ConfigServiceProvider extends ServiceProvider {
             'laravellocalization.supportedLocales' => [
                 'nl' => array( 'name' => 'Nederlands', 'script' => 'Latn', 'native' => 'Nederlands' ),
                 'fr'  => array( 'name' => 'français', 'script' => 'Latn', 'native' => 'français' ),
-                'en'  => array( 'name' => 'English', 'script' => 'Latn', 'native' => 'English' ),
+                'en'  => array( 'name' => 'English', 'script' => 'Latn', 'native' => 'English' )
             ],
 
             'laravellocalization.useAcceptLanguageHeader' => true,
 
-            'laravellocalization.hideDefaultLocaleInURL' => false,
+            'laravellocalization.hideDefaultLocaleInURL' => false
         ]);
 	}
 

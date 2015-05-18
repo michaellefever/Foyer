@@ -2,13 +2,18 @@
 
 use Illuminate\Database\Eloquent\Model;
 
-class User extends Model{
+class User extends Model {
 
-    protected $fillable = array('name','firstName','clubD','emailAddress','isMale','dateOfBirth', 'birthday',
-        'address','zipCode','city','valNr','shoeBrand');
+	protected $fillable = array('name','firstName','clubD','emailAddress','isMale','dateOfBirth', 'birthday',
+                                'address','zipCode','city','valNr','shoeBrand');
 
     public function participations(){
-        return $this->hasMany('Participation');
+        return $this->hasMany('App\Participation');
+    }
+
+    public function setEmailAddressAttribute($email)
+    {
+        $this->attributes['emailAddress'] = trim($email) !== '' ? $email : null;
     }
 
 }

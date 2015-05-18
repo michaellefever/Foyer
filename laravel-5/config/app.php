@@ -52,7 +52,7 @@ return [
 	|
 	*/
 
-	'locale' => 'en',
+	'locale' => 'nl',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -65,7 +65,7 @@ return [
 	|
 	*/
 
-	'fallback_locale' => 'en',
+	'fallback_locale' => 'nl',
 
 	/*
 	|--------------------------------------------------------------------------
@@ -138,6 +138,7 @@ return [
         'Illuminate\Html\HtmlServiceProvider',
 
         'Mcamara\LaravelLocalization\LaravelLocalizationServiceProvider',
+        'Maatwebsite\Excel\ExcelServiceProvider',
 
 		/*
 		 * Application Service Providers...
@@ -147,6 +148,8 @@ return [
 		'App\Providers\ConfigServiceProvider',
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
+
+        'Laracasts\Flash\FlashServiceProvider'
 
 	],
 
@@ -198,7 +201,8 @@ return [
         'Form'      => 'Illuminate\Html\FormFacade',
         'Html'      => 'Illuminate\Html\HtmlFacade',
         'LaravelLocalization'   => 'Mcamara\LaravelLocalization\Facades\LaravelLocalization',
-
+        'Flash'     => 'Laracasts\Flash\Flash',
+        'Excel' => 'Maatwebsite\Excel\Facades\Excel',
 	],
 
 ];

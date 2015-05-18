@@ -4,9 +4,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Race extends Model {
 
-    protected $fillable = array('nameOfTheRace','firstRaceNumber');
+    protected $fillable = array('nameOfTheRace','firstRaceNumber','distance');
 
-    public function particpations(){
-        return $this->hasMany('Participation');
+    public function participations(){
+        return $this->hasMany('App\Participation');
     }
 }
