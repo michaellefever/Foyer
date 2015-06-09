@@ -102,6 +102,14 @@ return [
 	|
 	*/
 
-	'attributes' => [],
-
+	'attributes' => [
+        "name" => "Name",
+        "firstName" => "First name",
+        "emailAddress" => "Email",
+        "dateOfBirth" => "Date of birth",
+        "isMale" => "Sex",
+        "nameOfTheRace" => "Name",
+        "distance" => "Distance",
+        "city" => "City",
+    ],
 ];

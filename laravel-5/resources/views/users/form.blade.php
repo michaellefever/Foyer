@@ -71,11 +71,11 @@
             {!! Form::label('distance', Lang::get('participation_form.distance'), ['class' =>'col-md-4 control-label']) !!}
             <div class="col-md-6">
                 @foreach($races as $race)
-                    {!! Form::label($race->distance . 'km',$race->distance . ' km') !!}
+                    {!! Form::label($race->nameOfTheRace, $race->nameOfTheRace) !!}
                     @if(!$user || $user->participations->isEmpty())
-                        {!! Form::radio('distance', $race->id, true) !!}
+                        {!! Form::radio('distance', $race->id, true, ['style' => 'margin:5px']) !!}
                     @else
-                        @if($race->distance == $user->participations->last()->race->distance)
+                        @if($race->distance == $user->participations->first()->race->distance)
                             {!! Form::radio('distance', $race->id, true) !!}
                         @else
                              {!! Form::radio('distance', $race->id, false) !!}

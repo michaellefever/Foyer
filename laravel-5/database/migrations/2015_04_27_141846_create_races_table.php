@@ -18,6 +18,8 @@ class CreateRacesTable extends Migration {
             $table->string('nameOfTheRace');
             $table->string('firstRaceNumber');
             $table->integer('distance')->unsigned();
+            $table->dateTime('startTime')->nullable();
+            $table->string('status')->nullable();
             $table->timestamps();
 		});
 	}

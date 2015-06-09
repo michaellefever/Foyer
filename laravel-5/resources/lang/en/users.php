@@ -12,5 +12,6 @@ return [
     'female' => 'F',
     'club' => 'Club',
     'valnr' => 'Valnr',
-    'shoebrand' => 'Shoe brand'
+    'shoebrand' => 'Shoe brand',
+    'age' => 'Age'
 ];

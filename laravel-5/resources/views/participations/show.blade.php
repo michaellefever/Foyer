@@ -12,7 +12,9 @@
                 </div>
                 @endif
                 <br>
-                @include('participations.table', ['participations' => $participations])
+                <div class="table-responsive">
+                    @include('participations.table', ['participations' => $participations])
+                </div>
             </div>
         </div>
     </div>

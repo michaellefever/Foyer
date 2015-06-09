@@ -16,4 +16,8 @@ class User extends Model {
         $this->attributes['emailAddress'] = trim($email) !== '' ? $email : null;
     }
 
+    public function setZipCodeAttribute($zipCode){
+        $this->attributes['zipCode'] = trim($zipCode) !== '' ? $zipCode : null;
+    }
+
 }

@@ -4,7 +4,7 @@ use Illuminate\Database\Eloquent\Model;
 class Participation extends Model {
 
     protected $primaryKey = array('race_id', 'year','user_id');
-    protected $fillable = array('race_id', 'year','user_id','raceNumber','chipNumber','time','paid','wiredTransfer','signedUpOnline');
+    protected $fillable = array('race_id', 'year','user_id','raceNumber','chipNumber','time', 'averageSpeed','paid','wiredTransfer','signedUpOnline');
 
     public function user(){
         return $this->belongsTo('App\User');

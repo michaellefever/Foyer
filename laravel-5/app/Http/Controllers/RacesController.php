@@ -2,9 +2,11 @@
 
 use App\Http\Requests;
 use App\Http\Requests\RaceRequest;
+use App\Participation;
 use App\Race;
-use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Lang;
+use Carbon\Carbon;
 
 class RacesController extends Controller {
 
@@ -49,6 +51,27 @@ class RacesController extends Controller {
         $message = str_replace(':name', $race->nameOfTheRace, Lang::get('messages.delete_race'));
         flash()->success($message);
         return redirect('races');
+    }
+
+    public function start(Request $request){
+        $ids = $request->input('ids');
+        foreach($ids as $id){
+            $race = Race::findOrFail($id);
+            $race->startTime = Carbon::now();
+            $race->status = "STARTED";
+            $race->update();
+        }
+        return redirect('timeregistration');
+    }
+
+    public function stop(Request $request){
+        $ids = $request->input('ids');
+        foreach($ids as $id){
+            $race = Race::findOrFail($id);
+            $race->status = "STOPPED";
+            $race->update();
+        }
+        return redirect('timeregistration');
     }
 
 }
